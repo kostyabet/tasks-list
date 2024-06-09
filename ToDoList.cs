@@ -8,6 +8,7 @@
             Tasks.LoadTasksFromFile();
             Thread.Sleep(1000);
             Display.DisplayStatus(["To Do List!", "Success"]);
+            Thread.Sleep(200);
         }
         public static void MainProgram() 
         {
@@ -21,8 +22,14 @@
         }
         private static void ExitProcess() 
         {
+            Display.DisplayStatus(["To Do List!", "Wait..."]);
+            //Tasks.SaveTasksInFile();
+            Thread.Sleep(1000);
+            Display.DisplayStatus(["To Do List!", "Success"]);
+            Thread.Sleep(200);
+            Display.DisplayStatus(["To Do List!", "GoodBye"]);
+            Thread.Sleep(200);
             Console.Clear();
-            //SaveTasksInFile();
         }
         public static void Main(String[] args) 
         {
