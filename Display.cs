@@ -1,9 +1,11 @@
+using System.Net;
 using System.Net.Http.Headers;
 
 namespace ToDoList 
 {
     class Display 
     {
+        private static string[] _exitOption = [" < Exit > "];
         public Display() {}
         public static int getSelectedIndex(string prompt, string[] options, int selectedIndex = 0) {
             ConsoleKey keyPressed;
@@ -18,6 +20,12 @@ namespace ToDoList
                     if (++selectedIndex == options.Length) selectedIndex = 0;
             } while (keyPressed != ConsoleKey.Enter);
             return selectedIndex;
+        }
+        private static void MoveCursorInDefPos() 
+        {
+            int top = Console.WindowHeight - 1;
+            int left = Console.WindowWidth - 1;
+            Console.SetCursorPosition(left, top);
         }
         private static void displayOptions(string prompt, string[] options, int selectedIndex = 0) {
             int top = Console.WindowHeight / 2 - options.Length / 2 - 1;
@@ -41,6 +49,7 @@ namespace ToDoList
                 top++;
             }
             Console.ResetColor();
+            MoveCursorInDefPos();
         }
         public static void DisplayStatus(string[] prompt) 
         {
@@ -54,6 +63,15 @@ namespace ToDoList
                 Console.WriteLine(info);
                 top++;
             }
+            MoveCursorInDefPos();
+        }
+        public static void Reference() 
+        {
+            Console.Clear();
+            string prompt = $"""
+                
+                """; // fix promtp
+            getSelectedIndex(prompt, _exitOption);
         }
     }
 }

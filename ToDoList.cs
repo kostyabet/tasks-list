@@ -2,7 +2,7 @@
 {
     class MainToDo () 
     {
-        static void PrepearProgram () 
+        private static void PrepearProgram () 
         {
             Display.DisplayStatus(["To Do List!", "Loading..."]);
             Tasks.LoadTasksFromFile();
@@ -10,7 +10,15 @@
             Display.DisplayStatus(["To Do List!", "Success"]);
             Thread.Sleep(200);
         }
-        public static void MainProgram() 
+        private static void WorkWithControl(MainOptions control) 
+        {
+            switch (control) 
+            {
+                case MainOptions.REFERENCES: Display.Reference(); break;
+                case MainOptions.TASKS: Tasks.WorkWithTasks(); break;
+            }
+        }
+        private  static void MainProgram() 
         {
             var control = MainOptions.EXIT;
             string prompt = "Choose varient";
@@ -18,6 +26,7 @@
             {
                 int Index = Display.getSelectedIndex(prompt, Navigation.GetMainOptions());
                 control = Navigation.MainOptionsController(Index);
+                WorkWithControl(control);
             } while (control != MainOptions.EXIT);
         }
         private static void ExitProcess() 

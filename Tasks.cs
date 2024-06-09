@@ -29,5 +29,9 @@ namespace ToDoList
                 Console.WriteLine(e.Message);
             }
         }
+        public static void WorkWithTasks() 
+        {
+            // create main work with tasks
+        }
     }
 }
