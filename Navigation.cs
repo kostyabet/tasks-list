@@ -1,7 +1,4 @@
-using System.ComponentModel.Design.Serialization;
-using System.Runtime.InteropServices;
-
-namespace ToDoList 
+namespace to_do_list_cs 
 {
     enum MainOptions 
     {

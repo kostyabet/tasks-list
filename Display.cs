@@ -1,7 +1,4 @@
-using System.Net;
-using System.Net.Http.Headers;
-
-namespace ToDoList 
+namespace to_do_list_cs 
 {
     class Display 
     {
