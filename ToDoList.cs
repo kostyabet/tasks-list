@@ -14,14 +14,15 @@
         {
             switch (control) 
             {
-                case MainOptions.REFERENCES: Display.Reference(); break;
+                //case MainOptions.GETTASK: Tasks.GetTask(); break;
                 case MainOptions.TASKS: Tasks.WorkWithTasks(); break;
+                case MainOptions.REFERENCES: Display.Reference(); break;
             }
         }
-        private  static void MainProgram() 
+        private static void MainProgram() 
         {
             var control = MainOptions.EXIT;
-            string prompt = "Choose varient";
+            string prompt = "To Do List";
             do 
             {
                 int Index = Display.getSelectedIndex(prompt, Navigation.GetMainOptions());

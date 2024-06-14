@@ -29,9 +29,25 @@ namespace ToDoList
                 Console.WriteLine(e.Message);
             }
         }
+        private static void WorkWithControl(TaskOptions control)
+        {
+            switch (control)
+            {
+                //case TaskOptions.GETTASK: GetTask();  break;
+                //case TaskOptions.ADDTASK: AddTask(); break;
+                //case TaskOptions.ALLTASKS: ViewAllTasks(); break;
+            }
+        }
         public static void WorkWithTasks() 
         {
-            // create main work with tasks
+            var control = TaskOptions.EXIT;
+            string prompt = "Work with tasks\nChoose the varient:";
+            do
+            {
+                int Index = Display.getSelectedIndex(prompt, Navigation.GetTasksOptions());
+                control = Navigation.TasksOptionsController(Index);
+                WorkWithControl(control);
+            } while (control != TaskOptions.EXIT);
         }
     }
 }
