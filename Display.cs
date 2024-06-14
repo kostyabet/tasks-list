@@ -29,7 +29,7 @@ namespace ToDoList
         }
         private static void displayOptions(string prompt, string[] options, int selectedIndex = 0) {
             string[] lines = prompt.Split(new[] { '\n' }, StringSplitOptions.None);
-            int top = Console.WindowHeight / 2 - options.Length / 2 - lines.Length;
+            int top = Console.WindowHeight / 2 - options.Length / 2 - (lines.Length + 2) / 2;
             int left;
             foreach (string line in lines)
             {
@@ -78,9 +78,26 @@ namespace ToDoList
                 To Do List
 
                 In this app you can write all your task in one list and complete this all sequentially.
-                Firstly you should add your task in folder {Navigation.GetMainOptions()[0]}.
+                Firstly you should add your task in folder {Navigation.GetMainOptions()[1]}.
 
-                /// continue
+                /// /// continue
+                /// /// continue
+                /// /// continue
+                /// /// continue
+                /// /// continue
+                /// /// continue
+                /// /// continue
+                /// /// continue
+                /// /// continue
+                /// /// continue
+                /// /// continue
+                /// /// continue
+                /// /// continue
+                /// /// continue
+                /// /// continue
+                /// /// continue
+                /// /// continue
+                /// /// continue
 
                 This app was created opensource and all your feedback is good result for as.
                 You can share your oppinion on our github: https://github.com/kostyabet/to_do_list-cs.

@@ -1,9 +1,15 @@
-﻿namespace ToDoList 
+﻿using System.Text;
+
+namespace ToDoList 
 {
     class MainToDo () 
     {
         private static void PrepearProgram () 
         {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            Console.OutputEncoding = Encoding.GetEncoding(1251);
+            Console.InputEncoding = Encoding.GetEncoding(1251);
+            Console.Title = "To Do List™";
             Display.DisplayStatus(["To Do List!", "Loading..."]);
             Tasks.LoadTasksFromFile();
             Thread.Sleep(1000);
@@ -22,7 +28,7 @@
         private static void MainProgram() 
         {
             var control = MainOptions.EXIT;
-            string prompt = "To Do List";
+            string prompt = "To Do List™";
             do 
             {
                 int Index = Display.getSelectedIndex(prompt, Navigation.GetMainOptions());

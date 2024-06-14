@@ -6,9 +6,9 @@ namespace ToDoList
     {
         private static ArrayList words = new ArrayList();
         private static string filePath = "data.txt";
-        public static void LoadTasksFromFile() 
+        public static void LoadTasksFromFile()
         {
-            try 
+            try
             {
                 using (StreamReader reader = new StreamReader(filePath))
                 {
@@ -29,12 +29,16 @@ namespace ToDoList
                 Console.WriteLine(e.Message);
             }
         }
+        private static void AddTask() 
+        {
+            
+        }
         private static void WorkWithControl(TaskOptions control)
         {
             switch (control)
             {
                 //case TaskOptions.GETTASK: GetTask();  break;
-                //case TaskOptions.ADDTASK: AddTask(); break;
+                case TaskOptions.ADDTASK: AddTask(); break;
                 //case TaskOptions.ALLTASKS: ViewAllTasks(); break;
             }
         }
