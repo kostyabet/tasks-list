@@ -26,36 +26,71 @@ namespace to_do_list_cs
         }
         private static void displayOptions(string prompt, string[] options, int selectedIndex = 0) {
             string[] lines = prompt.Split(new[] { '\n' }, StringSplitOptions.None);
-            int top = Console.WindowHeight / 2 - options.Length / 2 - (lines.Length + 2) / 2;
-            int left;
-            foreach (string line in lines)
+            if (lines.Length > Console.WindowHeight - 4)
             {
-                left = Console.WindowWidth / 2 - line.Length / 2;
+                int left = 0;
+                int top = 0;
                 Console.SetCursorPosition(left, top);
-                Console.WriteLine(line);
-                top++;
-            }
-            top++;
-            for (int i = 0; i < options.Length; ++i) {
-                string curentOption = options[i];
-                if (i == selectedIndex) {
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.BackgroundColor = ConsoleColor.White;
+                foreach (string line in lines)
+                {
+                    left = Console.WindowWidth / 2 - line.Length / 2;
+                    if (left > 0)
+                    {
+                        Console.SetCursorPosition(left, Console.CursorTop);
+                    }
+                    Console.WriteLine(line);
                 }
-                else {
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.BackgroundColor = ConsoleColor.Black;
+                Console.WriteLine();
+                for (int i = 0; i < options.Length; ++i) {
+                    string curentOption = options[i];
+                    if (i == selectedIndex) {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.BackgroundColor = ConsoleColor.White;
+                    }
+                    else {
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.BackgroundColor = ConsoleColor.Black;
+                    }
+                    left = Console.WindowWidth / 2 - curentOption.Length / 2;
+                    Console.SetCursorPosition(left, Console.CursorTop);
+                    Console.WriteLine($"{curentOption}");
                 }
-                left = Console.WindowWidth / 2 - curentOption.Length / 2;
-                Console.SetCursorPosition(left, top);
-                Console.WriteLine($"{curentOption}");
-                top++;
+                Console.ResetColor();
+                MoveCursorInDefPos();
             }
-            Console.ResetColor();
-            MoveCursorInDefPos();
+            else
+            {
+                int top = Console.WindowHeight / 2 - options.Length / 2 - (lines.Length + 2) / 2;
+                int left;
+                foreach (string line in lines)
+                {
+                    left = Console.WindowWidth / 2 - line.Length / 2;
+                    Console.SetCursorPosition(left, top);
+                    Console.WriteLine(line);
+                    top++;
+                }
+                top++;
+                for (int i = 0; i < options.Length; ++i) {
+                    string curentOption = options[i];
+                    if (i == selectedIndex) {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.BackgroundColor = ConsoleColor.White;
+                    }
+                    else {
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.BackgroundColor = ConsoleColor.Black;
+                    }
+                    left = Console.WindowWidth / 2 - curentOption.Length / 2;
+                    Console.SetCursorPosition(left, top);
+                    Console.WriteLine($"{curentOption}");
+                    top++;
+                }
+                Console.ResetColor();
+                MoveCursorInDefPos();
+            }
         }
-        public static void DisplayStatus(string[] prompt) 
-        {
+        public static void DisplayStatus(string[] prompt)
+        {   
             Console.Clear();
             int top = Console.WindowHeight / 2 - prompt.Length / 2;
             int left = 0;
@@ -68,7 +103,7 @@ namespace to_do_list_cs
             }
             MoveCursorInDefPos();
         }
-        public static void Reference() 
+        public static void Reference()
         {
             Console.Clear();
             string prompt = $"""
@@ -97,7 +132,7 @@ namespace to_do_list_cs
                 /// /// continue
 
                 This app was created opensource and all your feedback is good result for as.
-                You can share your oppinion on our github: https://github.com/kostyabet/to_do_list-cs.
+                You can share your opinion on our github: https://github.com/kostyabet/to_do_list-cs.
                 """;
             getSelectedIndex(prompt, _exitOption);
         }

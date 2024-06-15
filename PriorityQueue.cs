@@ -1,7 +1,7 @@
 ﻿namespace to_do_list_cs
 {
-    public class PriorityQueue
+    public class PriorityQueue<T>
     {
-        // priority queue 
+         
     }
 }

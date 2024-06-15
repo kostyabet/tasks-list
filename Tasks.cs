@@ -2,6 +2,18 @@ using System.Collections;
 
 namespace to_do_list_cs 
 {
+    internal struct Clock(int hours, int minuts)
+    {
+        public int Hours = hours;
+        public int Minuts = minuts;
+    }
+
+    internal struct Task(string headLine, string info, Clock time)
+    {
+        public string HeadLine = headLine;
+        public string Info = info;
+        public Clock Time = time;
+    }
     class Tasks 
     {
         private static ArrayList words = new ArrayList();
@@ -29,9 +41,14 @@ namespace to_do_list_cs
                 Console.WriteLine(e.Message);
             }
         }
-        private static void AddTask() 
+        private static void AddTask()
         {
-            
+            string headline = "";
+            string info = "";
+            int hours = 0;
+            int minuts = 0;
+            Clock time = new Clock(hours, minuts);
+            Task task = new Task(headline, info, time);
         }
         private static void WorkWithControl(TaskOptions control)
         {
