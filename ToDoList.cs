@@ -2,7 +2,7 @@
 
 namespace to_do_list_cs 
 {
-    class MainToDo () 
+    internal abstract class MainToDo
     {
         private static void PrepearProgram () 
         {
@@ -11,7 +11,7 @@ namespace to_do_list_cs
             Console.InputEncoding = Encoding.GetEncoding(1251);
             Console.Title = "To Do List™";
             Display.DisplayStatus(["To Do List!", "Loading..."]);
-            Tasks.LoadTasksFromFile();
+            //Tasks.LoadTasksFromFile();
             Thread.Sleep(1000);
             Display.DisplayStatus(["To Do List!", "Success"]);
             Thread.Sleep(200);
@@ -27,12 +27,12 @@ namespace to_do_list_cs
         }
         private static void MainProgram() 
         {
-            var control = MainOptions.EXIT;
+            MainOptions control;
             string prompt = "To Do List™";
             do 
             {
-                int Index = Display.getSelectedIndex(prompt, Navigation.GetMainOptions());
-                control = Navigation.MainOptionsController(Index);
+                int index = Display.getSelectedIndex(prompt, Navigation.GetMainOptions());
+                control = Navigation.MainOptionsController(index);
                 WorkWithControl(control);
             } while (control != MainOptions.EXIT);
         }

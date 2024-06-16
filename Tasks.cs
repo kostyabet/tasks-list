@@ -2,32 +2,22 @@ using System.Collections;
 
 namespace to_do_list_cs 
 {
-    internal struct Clock(int hours, int minuts)
-    {
-        public int Hours = hours;
-        public int Minuts = minuts;
-    }
-
-    internal struct Task(string headLine, string info, Clock time)
-    {
-        public string HeadLine = headLine;
-        public string Info = info;
-        public Clock Time = time;
-    }
-    class Tasks 
+    class Tasks
     {
         private static ArrayList words = new ArrayList();
-        private static string filePath = "data.txt";
+        private const string FilePath = "data.txt";
+
         public static void LoadTasksFromFile()
         {
             try
             {
-                using (StreamReader reader = new StreamReader(filePath))
+                using (StreamReader reader = new StreamReader(FilePath))
                 {
                     string? line = null;
                     while ((line = reader.ReadLine()) != null)
                     {
-                        string[] lineWords = line.Split(new char[] { ' ', '\0' }, StringSplitOptions.RemoveEmptyEntries);
+                        string[] lineWords =
+                            line.Split(new char[] { ' ', '\0' }, StringSplitOptions.RemoveEmptyEntries);
                         foreach (string word in lineWords)
                         {
                             words.Add(word);
@@ -41,14 +31,45 @@ namespace to_do_list_cs
                 Console.WriteLine(e.Message);
             }
         }
+        private static string InputString(string prompt, int length)
+        {
+            string res;
+            bool isIncorrect;
+            do
+            {
+                isIncorrect = false;
+                try
+                {
+                    res = Convert.ToString(Console.ReadLine()) ?? String.Empty;
+                    if (res.Length > length)
+                    {
+                        isIncorrect = true;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+                if (isIncorrect)
+                {
+                       
+                }
+            } while (isIncorrect);
+            return res;
+        }
+        private static void Add(Task task)
+        {
+            
+        }
         private static void AddTask()
         {
-            string headline = "";
+            string? headline = InputString("Input task headline: ", 30);
             string info = "";
             int hours = 0;
             int minuts = 0;
-            Clock time = new Clock(hours, minuts);
-            Task task = new Task(headline, info, time);
+            Clock time = new Clock(0, 0, 0, 0, 0);
+            Add(new Task(headline, info, time));
         }
         private static void WorkWithControl(TaskOptions control)
         {
@@ -65,8 +86,8 @@ namespace to_do_list_cs
             string prompt = "Work with tasks\nChoose the varient:";
             do
             {
-                int Index = Display.getSelectedIndex(prompt, Navigation.GetTasksOptions());
-                control = Navigation.TasksOptionsController(Index);
+                int index = Display.getSelectedIndex(prompt, Navigation.GetTasksOptions());
+                control = Navigation.TasksOptionsController(index);
                 WorkWithControl(control);
             } while (control != TaskOptions.EXIT);
         }
