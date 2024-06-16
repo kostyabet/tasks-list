@@ -6,7 +6,10 @@ namespace to_do_list_cs
     {
         private static ArrayList words = new ArrayList();
         private const string FilePath = "data.txt";
-
+        public const int MaxCaption = 30;
+        public const int MinCaption = 1;
+        public const int MaxInfo = 100;
+        public const int MinInfo = 0;
         public static void LoadTasksFromFile()
         {
             try
@@ -31,44 +34,17 @@ namespace to_do_list_cs
                 Console.WriteLine(e.Message);
             }
         }
-        private static string InputString(string prompt, int length)
-        {
-            string res;
-            bool isIncorrect;
-            do
-            {
-                isIncorrect = false;
-                try
-                {
-                    res = Convert.ToString(Console.ReadLine()) ?? String.Empty;
-                    if (res.Length > length)
-                    {
-                        isIncorrect = true;
-                    }
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    throw;
-                }
-                if (isIncorrect)
-                {
-                       
-                }
-            } while (isIncorrect);
-            return res;
-        }
+
         private static void Add(Task task)
         {
             
         }
         private static void AddTask()
         {
-            string? headline = InputString("Input task headline: ", 30);
-            string info = "";
-            int hours = 0;
-            int minuts = 0;
-            Clock time = new Clock(0, 0, 0, 0, 0);
+            Console.SetCursorPosition(0, Console.WindowHeight - 1);
+            string headline = Display.InputString("Input task headline: ", MinCaption, MaxCaption).Trim();
+            string info = Display.InputString("Input info about task: ", MinInfo, MaxInfo).Trim();
+            Clock time = Display.InputDate("Input date of completion (day.month.year): ");
             Add(new Task(headline, info, time));
         }
         private static void WorkWithControl(TaskOptions control)
@@ -86,7 +62,7 @@ namespace to_do_list_cs
             string prompt = "Work with tasks\nChoose the varient:";
             do
             {
-                int index = Display.getSelectedIndex(prompt, Navigation.GetTasksOptions());
+                int index = Display.GetSelectedIndex(prompt, Navigation.GetTasksOptions());
                 control = Navigation.TasksOptionsController(index);
                 WorkWithControl(control);
             } while (control != TaskOptions.EXIT);

@@ -31,7 +31,7 @@ namespace to_do_list_cs
             string prompt = "To Do List™";
             do 
             {
-                int index = Display.getSelectedIndex(prompt, Navigation.GetMainOptions());
+                int index = Display.GetSelectedIndex(prompt, Navigation.GetMainOptions());
                 control = Navigation.MainOptionsController(index);
                 WorkWithControl(control);
             } while (control != MainOptions.EXIT);

@@ -1,11 +1,9 @@
 ﻿namespace to_do_list_cs;
-public struct Clock(int age, int month, int day, int hours, int minuts)
+public struct Clock(int year, int month, int day)
 {
-    public int Age = age;
+    public int Year = year;
     public int Month = month;
     public int Day = day;
-    public int Hours = hours;
-    public int Minuts = minuts;
 }
 public class Task
 {
