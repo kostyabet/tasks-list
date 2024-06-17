@@ -21,8 +21,8 @@ namespace to_do_list_cs
             switch (control) 
             {
                 //case MainOptions.GETTASK: Tasks.GetTask(); break;
-                case MainOptions.TASKS: Tasks.WorkWithTasks(); break;
-                case MainOptions.REFERENCES: Display.Reference(); break;
+                case MainOptions.Tasks: Tasks.WorkWithTasks(); break;
+                case MainOptions.References: Display.Reference(); break;
             }
         }
         private static void MainProgram() 
@@ -34,7 +34,7 @@ namespace to_do_list_cs
                 int index = Display.GetSelectedIndex(prompt, Navigation.GetMainOptions());
                 control = Navigation.MainOptionsController(index);
                 WorkWithControl(control);
-            } while (control != MainOptions.EXIT);
+            } while (control != MainOptions.Exit);
         }
         private static void ExitProcess() 
         {
@@ -47,7 +47,7 @@ namespace to_do_list_cs
             Thread.Sleep(200);
             Console.Clear();
         }
-        public static void Main(String[] args) 
+        public static void Main(String[] args)
         {
             PrepearProgram();
             MainProgram();

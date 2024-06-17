@@ -2,17 +2,18 @@ namespace to_do_list_cs
 {
     enum MainOptions 
     {
-        GETTASK,
-        TASKS, 
-        REFERENCES,
-        EXIT
+        GetTask,
+        Tasks, 
+        References,
+        Exit
     }
+
     enum TaskOptions 
     {
-        GETTASK,
-        ADDTASK,
-        ALLTASKS,
-        EXIT
+        GetTask,
+        AddTask,
+        AllTasks,
+        Exit
     }
     class Navigation 
     {
@@ -24,20 +25,20 @@ namespace to_do_list_cs
         {
             switch (Index) 
             {
-                case (int)MainOptions.GETTASK: return MainOptions.GETTASK;
-                case (int)MainOptions.TASKS: return MainOptions.TASKS;
-                case (int)MainOptions.REFERENCES: return MainOptions.REFERENCES;
-                default: return MainOptions.EXIT;
+                case (int)MainOptions.GetTask: return MainOptions.GetTask;
+                case (int)MainOptions.Tasks: return MainOptions.Tasks;
+                case (int)MainOptions.References: return MainOptions.References;
+                default: return MainOptions.Exit;
             }
         }
         public static TaskOptions TasksOptionsController(int Index)
         {
             switch (Index)
             {
-                case (int)TaskOptions.GETTASK: return TaskOptions.GETTASK;
-                case (int)TaskOptions.ADDTASK: return TaskOptions.ADDTASK;
-                case (int)TaskOptions.ALLTASKS: return TaskOptions.ALLTASKS;
-                default: return TaskOptions.EXIT;
+                case (int)TaskOptions.GetTask: return TaskOptions.GetTask;
+                case (int)TaskOptions.AddTask: return TaskOptions.AddTask;
+                case (int)TaskOptions.AllTasks: return TaskOptions.AllTasks;
+                default: return TaskOptions.Exit;
             }
         }
     }

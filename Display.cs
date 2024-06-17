@@ -271,7 +271,6 @@ internal abstract class Display
                          /// /// continue
                          /// /// continue
                          /// /// continue
-                         /// /// continue
 
                          This app was created opensource and all your feedback is good result for as.
                          You can share your opinion on our github: https://github.com/kostyabet/to_do_list-cs.
