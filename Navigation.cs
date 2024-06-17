@@ -17,7 +17,7 @@ namespace to_do_list_cs
     class Navigation 
     {
         private static string[] _mainOptions = [" < Next Task > ", " < Work With Tasks > ", " < References > ", " < Exit > "];
-        private static string[] _tasksOptions = [" < Next Task > ", " < Add New Task > ", " < Show All Tasks > ", " < Exit > "];
+        private static string[] _tasksOptions = [" < Next Task > ", " < Add New Task > ", " < Show All Tasks > ", " < Exit > "]; // length: [0]:15, [1]:18, [2]:20
         public static string[] GetMainOptions() => _mainOptions;
         public static string[] GetTasksOptions() => _tasksOptions;
         public static MainOptions MainOptionsController(int Index) 

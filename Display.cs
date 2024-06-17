@@ -252,16 +252,17 @@ internal abstract class Display
 
                          In this app you can write all your task in one list and complete this all sequentially.
                          Firstly you should add your task in folder {Navigation.GetMainOptions()[1]}.
+                         
+                         In this folder you can:
+                            {Navigation.GetTasksOptions()[0]} - get next task for complete;     
+                            {Navigation.GetTasksOptions()[1]} - add new task;                
+                            {Navigation.GetTasksOptions()[2]} - view all tasks list.       
+                            
+                         Anyone task have:
+                            - Headline;                               
+                            - Info (optional);                        
+                            - Date of complete (in format xx.xx.20xx).
 
-                         /// /// continue
-                         /// /// continue
-                         /// /// continue
-                         /// /// continue
-                         /// /// continue
-                         /// /// continue
-                         /// /// continue
-                         /// /// continue
-                         /// /// continue
                          /// /// continue
                          /// /// continue
                          /// /// continue
