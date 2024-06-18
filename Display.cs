@@ -75,7 +75,7 @@ internal abstract class Display
         }
         else
         {
-            int top = Console.WindowHeight / 2 - options.Length / 2 - (lines.Length + 2) / 2;
+            int top = Console.WindowHeight / 2 - options.Length / 2 - (lines.Length + 2) / 2 + 1;
             int left;
             foreach (string line in lines)
             {
@@ -276,5 +276,21 @@ internal abstract class Display
                          You can share your opinion on our github: https://github.com/kostyabet/to_do_list-cs.
                          """;
         GetSelectedIndex(prompt, ExitOption);
+    }
+
+    public static string CreateTaskPrompt(Task? task)
+    {
+        string res = $"""
+              |---------------------------------------------|
+                              
+              {task?.HeadLine}             
+                              
+              {task?.Info}
+                                
+              {task?.GetTime.ToString()}
+                                                           
+              |---------------------------------------------|
+              """;
+        return res;
     }
 }

@@ -5,12 +5,13 @@ namespace to_do_list_cs
 {
     class Tasks
     {
-        private static List<Task>? _words; 
+        private static readonly List<Task> Words = []; 
         private const string FilePath = "data.txt";
         private const int MaxCaption = 30;
         private const int MinCaption = 1;
         private const int MaxInfo = 100;
         private const int MinInfo = 0;
+        private static int _curentTask = 0;
         public static void LoadTasksFromFile()
         {
             try
@@ -35,19 +36,43 @@ namespace to_do_list_cs
                 Console.WriteLine(e.Message);
             }
         }
-
+        private static void WorkWithControl(TaskOptions control) 
+        {
+            switch (control) 
+            {
+                //case TaskOptions.Complete: Tasks.Complete(); break;
+                //case TaskOptions.Next: Tasks.Next(); break;
+            }
+        }
+        public static void GetTask()
+        {
+            if (Words.Count == 0)
+            {
+                Display.GetSelectedIndex("You don't have tasks.", Navigation.GetExitOptions());
+                return;
+            }
+            TaskOptions control;
+            var prompt = Display.CreateTaskPrompt(Words[_curentTask]);
+            do 
+            {
+                var index = Display.GetSelectedIndex(prompt, Navigation.GetTaskOptions());
+                control = Navigation.TaskOptionsController(index);
+                WorkWithControl(control);
+            } while (control != TaskOptions.Exit);
+            _curentTask = 0;
+        }
         private static int TaskEqual(Task task1, Task task2)
         {
-            Clock clock1 = task1.GetTime;
-            Clock clock2 = task2.GetTime;
+            var clock1 = task1.GetTime;
+            var clock2 = task2.GetTime;
             if (clock1.Year > clock2.Year || clock1.Month > clock2.Month || clock1.Day > clock2.Day) return 1;
             if (clock1.Year < clock2.Year || clock1.Month < clock2.Month || clock1.Day < clock2.Day) return -1;
             if (clock1.Year == clock2.Year || clock1.Month == clock2.Month || clock1.Day == clock2.Day) return 0;
-            throw new("Error clocks equality");
+            throw new Exception("Error clocks equality");
         }
         private static void Sort()
         {
-            Task[]? tasks = _words?.ToArray();
+            var tasks = Words.ToArray() ?? null;
             /*Task[]? arr = [
                 new Task("1", "1", new Clock(2024, 02, 29)), 
                 new Task("2", "2", new Clock(2024, 02, 21)), 
@@ -64,15 +89,15 @@ namespace to_do_list_cs
                     j++;
                 }
             }
-            _words?.Clear();
+            Words.Clear();
             foreach (var task in tasks)
             {
-                _words?.Add(task);
+                Words.Add(task);
             }
         }
         private static void Add(Task task)
         {
-            _words?.Add(task);
+            Words.Add(task);
             Sort();
         }
         private static void AddTask()
@@ -83,25 +108,25 @@ namespace to_do_list_cs
             var time = Display.InputDate("Input date of completion (day.month.year): ");
             Add(new Task(headline, info, time));
         }
-        private static void WorkWithControl(TaskOptions control)
+        private static void WorkWithControl(TasksOptions control)
         {
             switch (control)
             {
                 //case TaskOptions.GETTASK: GetTask();  break;
-                case TaskOptions.AddTask: AddTask(); break;
+                case TasksOptions.AddTask: AddTask(); break;
                 //case TaskOptions.ALLTASKS: ViewAllTasks(); break;
             }
         }
         public static void WorkWithTasks() 
         {
-            var control = TaskOptions.Exit;
+            var control = TasksOptions.Exit;
             string prompt = "Work with tasks\nChoose the varient:";
             do
             {
                 int index = Display.GetSelectedIndex(prompt, Navigation.GetTasksOptions());
                 control = Navigation.TasksOptionsController(index);
                 WorkWithControl(control);
-            } while (control != TaskOptions.Exit);
+            } while (control != TasksOptions.Exit);
         }
     }
 }

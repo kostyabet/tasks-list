@@ -8,38 +8,59 @@ namespace to_do_list_cs
         Exit
     }
 
-    enum TaskOptions 
+    enum TaskOptions
+    {
+        Complete,
+        Next,
+        Exit
+    }
+    enum TasksOptions 
     {
         GetTask,
         AddTask,
         AllTasks,
         Exit
     }
-    class Navigation 
+
+    internal abstract class Navigation
     {
-        private static string[] _mainOptions = [" < Next Task > ", " < Work With Tasks > ", " < References > ", " < Exit > "];
-        private static string[] _tasksOptions = [" < Next Task > ", " < Add New Task > ", " < Show All Tasks > ", " < Exit > "]; // length: [0]:15, [1]:18, [2]:20
-        public static string[] GetMainOptions() => _mainOptions;
-        public static string[] GetTasksOptions() => _tasksOptions;
-        public static MainOptions MainOptionsController(int Index) 
+        private static readonly string[] ExitOptions = [" < Exit > "];
+        private static readonly string[] TaskOptions = [" < Complete > ", " < Next > ", " < Exit > "];
+        private static readonly string[] MainOptions = [" < Next Task > ", " < Work With Tasks > ", " < References > ", " < Exit > "];
+        private static readonly string[] TasksOptions = [" < Next Task > ", " < Add New Task > ", " < Show All Tasks > ", " < Exit > "]; // length: [0]:15, [1]:18, [2]:20
+        public static string[] GetExitOptions() => ExitOptions;
+        public static string[] GetTaskOptions() => TaskOptions;
+        public static string[] GetMainOptions() => MainOptions;
+        public static string[] GetTasksOptions() => TasksOptions;
+        public static MainOptions MainOptionsController(int index)
         {
-            switch (Index) 
+            return index switch
             {
-                case (int)MainOptions.GetTask: return MainOptions.GetTask;
-                case (int)MainOptions.Tasks: return MainOptions.Tasks;
-                case (int)MainOptions.References: return MainOptions.References;
-                default: return MainOptions.Exit;
-            }
+                (int)to_do_list_cs.MainOptions.GetTask => to_do_list_cs.MainOptions.GetTask,
+                (int)to_do_list_cs.MainOptions.Tasks => to_do_list_cs.MainOptions.Tasks,
+                (int)to_do_list_cs.MainOptions.References => to_do_list_cs.MainOptions.References,
+                _ => to_do_list_cs.MainOptions.Exit
+            };
         }
-        public static TaskOptions TasksOptionsController(int Index)
+        public static TasksOptions TasksOptionsController(int index)
         {
-            switch (Index)
+            return index switch
             {
-                case (int)TaskOptions.GetTask: return TaskOptions.GetTask;
-                case (int)TaskOptions.AddTask: return TaskOptions.AddTask;
-                case (int)TaskOptions.AllTasks: return TaskOptions.AllTasks;
-                default: return TaskOptions.Exit;
-            }
+                (int)to_do_list_cs.TasksOptions.GetTask => to_do_list_cs.TasksOptions.GetTask,
+                (int)to_do_list_cs.TasksOptions.AddTask => to_do_list_cs.TasksOptions.AddTask,
+                (int)to_do_list_cs.TasksOptions.AllTasks => to_do_list_cs.TasksOptions.AllTasks,
+                _ => to_do_list_cs.TasksOptions.Exit
+            };
+        }
+
+        public static TaskOptions TaskOptionsController(int index)
+        {
+            return index switch
+            {
+                (int)to_do_list_cs.TaskOptions.Complete => to_do_list_cs.TaskOptions.Complete,
+                (int)to_do_list_cs.TaskOptions.Next => to_do_list_cs.TaskOptions.Next,
+                _ => to_do_list_cs.TaskOptions.Exit
+            };
         }
     }
 }

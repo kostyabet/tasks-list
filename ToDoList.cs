@@ -20,7 +20,7 @@ namespace to_do_list_cs
         {
             switch (control) 
             {
-                //case MainOptions.GETTASK: Tasks.GetTask(); break;
+                case MainOptions.GetTask: Tasks.GetTask(); break;
                 case MainOptions.Tasks: Tasks.WorkWithTasks(); break;
                 case MainOptions.References: Display.Reference(); break;
             }

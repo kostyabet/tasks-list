@@ -7,17 +7,17 @@ public struct Clock(int year, int month, int day)
 }
 public class Task
 {
-    private string _headLine;
-    private string _info;
-
     public Task(string headLine, string info, Clock clock)
     {
-        _headLine = headLine;
-        _info = info;
+        HeadLine = headLine;
+        Info = info;
         GetTime = clock;
     }
     /// <summary>
     /// Time format: xx.xx.20xx (day.month.year);
     /// </summary>
     public Clock GetTime { get; private set; }
+
+    public string HeadLine { get; }
+    public string Info { get; }
 }
