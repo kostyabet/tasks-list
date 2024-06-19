@@ -1,2 +1,2 @@
-# to_do_sdjfasdflist-cs
-Create fun to do list on c sharp
+# Console To Do
+Project was written on CSharp .Net 8.0
