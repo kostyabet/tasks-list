@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasksList.DataAccess", "Tas
 		{AEF0B327-6AE2-4853-B209-E6AFA3E77D96} = {AEF0B327-6AE2-4853-B209-E6AFA3E77D96}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasksList.Application", "TasksList.Application\TasksList.Application.csproj", "{870D6C1F-5B00-40BD-93BC-9F8A08DC8D6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,5 +29,9 @@ Global
 		{0DF4DBF2-7080-43BB-855C-1DF056539474}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DF4DBF2-7080-43BB-855C-1DF056539474}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DF4DBF2-7080-43BB-855C-1DF056539474}.Release|Any CPU.Build.0 = Release|Any CPU
+		{870D6C1F-5B00-40BD-93BC-9F8A08DC8D6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{870D6C1F-5B00-40BD-93BC-9F8A08DC8D6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{870D6C1F-5B00-40BD-93BC-9F8A08DC8D6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{870D6C1F-5B00-40BD-93BC-9F8A08DC8D6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

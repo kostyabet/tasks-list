@@ -4,10 +4,10 @@ using TasksList.DataAccess.Entities;
 
 namespace TasksList.DataAccess.Repositories;
 
-public class TaskRepository : ITaskRepository
+public class TasksRepository : ITasksRepository
 {
     private readonly TasksListDbContext _context;
-    public TaskRepository(TasksListDbContext context)
+    public TasksRepository(TasksListDbContext context)
     {
         _context = context;
     }

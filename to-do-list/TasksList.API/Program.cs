@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using TasksList.Application.Services;
+using TasksList.Core.Abstractions;
 using TasksList.DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +15,9 @@ builder.Services.AddDbContext<TasksListDbContext>(
     {
         options.UseNpgsql(builder.Configuration.GetConnectionString(nameof(TasksListDbContext)));
     });
+
+builder.Services.AddScoped<ITasksService, TasksService>();
+builder.Services.AddScoped<ITasksRepository, TasksList.DataAccess.Repositories.TasksRepository>();
 
 var app = builder.Build();
 

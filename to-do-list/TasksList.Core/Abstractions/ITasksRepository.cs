@@ -1,6 +1,6 @@
 ﻿namespace TasksList.Core.Abstractions;
 
-public interface ITaskRepository
+public interface ITasksRepository
 {
     Task<Guid> Create(Core.Models.Task task);
     Task<Guid> Delete(Guid id);

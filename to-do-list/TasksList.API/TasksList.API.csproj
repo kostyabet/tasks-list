@@ -22,6 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\TasksList.Application\TasksList.Application.csproj" />
         <ProjectReference Include="..\TasksList.DataAccess\TasksList.DataAccess.csproj" />
     </ItemGroup>
 
