@@ -10,6 +10,5 @@ public class TasksListDbContext : DbContext
     {
         
     }
-    
     public DbSet<TaskEntity> Tasks { get; set; }
 }

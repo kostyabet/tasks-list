@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using TasksList.API.Controllers;
 using TasksList.Core.Abstructions;
 using TasksList.DataAccess;
 using TasksList.DataAccess.Repositories;

@@ -5,12 +5,12 @@ services:
     image: postgres:latest
     environment:
       POSTGRES_DB: "taskslistdb"
-      POSTGRES_USER: "pg"
+      POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "321"
     volumes:
       - postgres-data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "1234:1234"
       
 volumes:
   postgres-data:
