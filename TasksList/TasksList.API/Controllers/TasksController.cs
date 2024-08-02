@@ -42,4 +42,20 @@ public class TasksController : ControllerBase
         
         return new OkObjectResult(taskId);
     }
+
+    [HttpPut("{id:guid}")]
+    public async Task<ActionResult<Guid>> UpdateTask(Guid id, [FromBody] TasksRequest request)
+    {
+        var taskId = await _tasksServices.UpdateTask(id, request.Title, request.Description);
+
+        return new OkObjectResult(taskId);
+    }
+
+    [HttpDelete("{id:guid}")]
+    public async Task<ActionResult<Guid>> DeleteTask(Guid id)
+    {
+        var taskId = await _tasksServices.DeleteTask(id);
+
+        return new OkObjectResult(taskId);
+    }
 }
