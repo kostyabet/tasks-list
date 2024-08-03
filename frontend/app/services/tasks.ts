@@ -10,7 +10,7 @@ export const getAllTasks = async () => {
 }
 
 export const createTask = async (taskRequest: TaskRequest)=> {
-    await fetch("https://localhost:44395/Tasks", {
+    return await fetch("https://localhost:44395/Tasks", {
         method: "POST",
         headers: {
             "content-type": "application/json",
@@ -20,7 +20,7 @@ export const createTask = async (taskRequest: TaskRequest)=> {
 }
 
 export const updateTask = async (id: string, taskRequest: TaskRequest)=> {
-    await fetch(`https://localhost:44395/Tasks/${id}`, {
+    return await fetch(`https://localhost:44395/Tasks/${id}`, {
         method: "PUT",
         headers: {
             "content-type": "application/json",
