@@ -84,7 +84,7 @@ export default function TasksListPage() {
         <div>
             <Button
                 type={"primary"}
-                style={{marginTop: "30px"}} 
+                style={{marginTop: "25px"}} 
                 size={"large"}
                 onClick={openModal}
             >
