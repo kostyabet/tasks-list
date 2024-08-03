@@ -48,8 +48,7 @@ export default function TasksListPage() {
     
     const handleDeleteTask = async (id: string) => {
         await deleteTask(id);
-        closeModal();
-        
+                
         const tasks = await getAllTasks();
         setTasks(tasks);
     }

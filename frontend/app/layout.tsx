@@ -1,9 +1,7 @@
-import type { Metadata } from "next";
 import "./globals.css";
 import {Layout, Menu} from "antd";
 import {Content, Header} from "antd/es/layout/layout";
 import Link from "next/link";
-import {Footer} from "antd/es/modal/shared";
 
 const items = [
   {key: "home", label: <Link href={"/"}>Home</Link>},
