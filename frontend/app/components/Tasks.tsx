@@ -57,16 +57,14 @@ export const Tasks = ({tasks, handleDelete, handleOpen}: Props) => {
                             Удалить
                         </Button>
                     </div>
-                    
-                    <DeleteModelTask 
-                        isModalOpen={isModalOpen}
-                        taskId={id}
-                        handleOnOk={handleDeleteOnClick} 
-                        handleOnCancel={CloseModal}
-                    />
-                    
                 </Card>
             ))}
+            <DeleteModelTask
+                isModalOpen={isModalOpen}
+                taskId={id} 
+                handleOnOk={handleDeleteOnClick}
+                handleOnCancel={CloseModal}
+            />
         </div>
     )
 }
