@@ -27,7 +27,7 @@ export default function RootLayout({
             />
           </Header>
           <Content style={{padding: "0 48px"}}>{children}</Content>
-          <Footer style={{ textAlign: 'center', width: "auto", flex: 1, height: "100vh", backgroundColor: "rgb(0, 21, 41)", marginTop: "25px", color: "grey"}}>
+          <Footer style={{ textAlign: 'center', width: "auto", flex: 1, maxHeight: "66.4px", height: "66.4px", backgroundColor: "rgb(0, 21, 41)", marginTop: "25px", color: "grey"}}>
             <p>Tasks List ©2024 Created by Kostya Betenya</p>
           </Footer>
         </Layout>
