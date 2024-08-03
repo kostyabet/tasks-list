@@ -1,1 +1,5 @@
-﻿interface Task
+﻿interface Task {
+    id: string;
+    title: string;
+    description: string;
+}
