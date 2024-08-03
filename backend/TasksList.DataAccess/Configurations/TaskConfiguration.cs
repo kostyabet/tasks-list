@@ -13,6 +13,7 @@ public class TaskConfiguration : IEntityTypeConfiguration<TaskEntity>
             .HasMaxLength(Core.Models.Task.MAX_TITLE_LENGTH)
             .IsRequired();
         builder.Property(b => b.Description)
+            .HasMaxLength(Core.Models.Task.MAX_DESCRIPTION_LENGTH)
             .IsRequired();
     }
 }

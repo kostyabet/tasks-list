@@ -1,6 +1,6 @@
 ﻿import {TaskRequest} from "@/app/services/tasks";
-import {Input, Modal} from "antd";
-import {useEffect, useState} from "react";
+import {Alert, Input, Modal} from "antd";
+import React, {useEffect, useState} from "react";
 import TextArea from "antd/es/input/TextArea";
 
 interface Props {
@@ -10,6 +10,7 @@ interface Props {
     handleCancel: () => void;
     handleCreate: (request: TaskRequest) => void;
     handleUpdate: (id: string, request: TaskRequest) => void;
+    alertMessage: string;
 }
 
 export enum Mode {
@@ -24,10 +25,11 @@ export const CreateUpdateTask = ({
     handleCancel,
     handleCreate,
     handleUpdate,
+    alertMessage
 } : Props) => {
     const [title, setTitle] = useState<string>("");
     const [description, setDescription] = useState<string>("");
-    
+
     useEffect(() => {
         setTitle(values.title);
         setDescription(values.description);
@@ -50,6 +52,7 @@ export const CreateUpdateTask = ({
             onCancel={handleCancel}
         >
             <div className={"book__modal"}>
+                <Alert message={alertMessage} type={"error"} style={alertMessage == "" ? {display: "none"} : {display: "block"}}/>
                 <Input
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
@@ -61,7 +64,7 @@ export const CreateUpdateTask = ({
                     autoSize={{ minRows: 3, maxRows: 3 }}
                     placeholder={"Описание"}
                 />
-            </div>    
+            </div>
         </Modal>
     )
 }

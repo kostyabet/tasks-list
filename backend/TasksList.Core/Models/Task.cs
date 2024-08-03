@@ -3,6 +3,7 @@
 public class Task
 {
     public const int MAX_TITLE_LENGTH = 100;
+    public const int MAX_DESCRIPTION_LENGTH = 300;
     private Task(Guid id, string title, string description)
     {
         Id = id;
@@ -19,7 +20,12 @@ public class Task
 
         if (string.IsNullOrEmpty(title) || title.Length > MAX_TITLE_LENGTH)
         {
-            error = $"You should write title and title length should be less than {MAX_TITLE_LENGTH}!";
+            error = $"Title size should not be empty and not more than {MAX_TITLE_LENGTH}!";
+        }
+
+        if (string.IsNullOrEmpty(description) || description.Length > MAX_DESCRIPTION_LENGTH)
+        {
+            error = $"Description size should not be empty and not more than {MAX_DESCRIPTION_LENGTH}!";
         }
 
         var task = new Task(id, title, description);

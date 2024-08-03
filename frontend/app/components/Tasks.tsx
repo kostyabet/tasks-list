@@ -1,6 +1,9 @@
 ﻿import {Card} from "antd";
 import Button from "antd/es/button/button";
 import {Cardtitle} from "@/app/components/Cardtitle";
+import {CreateUpdateTask} from "@/app/components/CreateUpdateTask";
+import {DeleteModelTask} from "@/app/components/DeleteModelTask";
+import {useState} from "react";
 
 interface Props {
     tasks: Task[];
@@ -9,6 +12,27 @@ interface Props {
 }
 
 export const Tasks = ({tasks, handleDelete, handleOpen}: Props) => {
+    const [isModalOpen, setModalOpen] = useState<boolean>(false);
+    const [id, setId] = useState<string>("");
+    function handleDeleteOnClick(id: string) 
+    {
+        handleDelete(id);
+        CloseModal();
+    }
+    function OnDeleteClick(id: string) 
+    {
+        setId(id);
+        OpenModal();
+    }
+    function OpenModal() 
+    {
+        setModalOpen(true);
+    }
+    function CloseModal() 
+    {
+        setModalOpen(false);
+    }
+    
     return (
         <div className={"cards"}>
             {tasks.map((task : Task) => (
@@ -26,7 +50,7 @@ export const Tasks = ({tasks, handleDelete, handleOpen}: Props) => {
                             Редактировать
                         </Button>
                         <Button
-                            onClick={() => handleDelete(task.id)}
+                            onClick={() => OnDeleteClick(task.id)}
                             danger
                             style={{flex: 1}}
                         >
@@ -35,6 +59,12 @@ export const Tasks = ({tasks, handleDelete, handleOpen}: Props) => {
                     </div>
                 </Card>
             ))}
+            <DeleteModelTask
+                isModalOpen={isModalOpen}
+                taskId={id} 
+                handleOnOk={handleDeleteOnClick}
+                handleOnCancel={CloseModal}
+            />
         </div>
     )
 }

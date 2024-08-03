@@ -1,9 +1,8 @@
-import type { Metadata } from "next";
 import "./globals.css";
-import {Layout, Menu} from "antd";
-import {Content, Header} from "antd/es/layout/layout";
+import {Anchor, Breadcrumb, Layout, Menu} from "antd";
+import {Content, Header, Footer} from "antd/es/layout/layout";
 import Link from "next/link";
-import {Footer} from "antd/es/modal/shared";
+import Home from "@/app/page";
 
 const items = [
   {key: "home", label: <Link href={"/"}>Home</Link>},
@@ -28,6 +27,9 @@ export default function RootLayout({
             />
           </Header>
           <Content style={{padding: "0 48px"}}>{children}</Content>
+          <Footer style={{ textAlign: 'center', width: "auto", flex: 1, maxHeight: "66.4px", height: "66.4px", backgroundColor: "rgb(0, 21, 41)", marginTop: "25px", color: "grey"}}>
+            <p>Tasks List ©2024 Created by Kostya Betenya</p>
+          </Footer>
         </Layout>
       </body>
     </html>
