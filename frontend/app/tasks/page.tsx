@@ -60,6 +60,7 @@ export default function TasksListPage() {
     }
     
     const closeModal = () => {
+        setAlertMessage("");
         setValues(defaultValues);
         setIsModalOpen(false);
     }
