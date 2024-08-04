@@ -39,11 +39,18 @@ export default function TasksListPage() {
     }
     
     const handleUpdateTask = async (id: string, request: TaskRequest) => {
-        await updateTask(id, request);
-        closeModal();
+        var requestTask = await updateTask(id, request);
+        if (requestTask.status == 200)
+        {
+            closeModal();
 
-        const tasks = await getAllTasks();
-        setTasks(tasks);
+            const tasks = await getAllTasks();
+            setTasks(tasks);
+        }
+        else
+        {
+            setAlertMessage(requestTask.statusText + " Exit code " + requestTask.status);
+        }
     }
     
     const handleDeleteTask = async (id: string) => {
