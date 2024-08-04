@@ -2,7 +2,7 @@
 
 public class Task
 {
-    public const int MAX_TITLE_LENGTH = 100;
+    public const int MAX_TITLE_LENGTH = 20;
     public const int MAX_DESCRIPTION_LENGTH = 300;
     private Task(Guid id, string title, string description)
     {
